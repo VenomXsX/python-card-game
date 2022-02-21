@@ -9,9 +9,13 @@ class Deck:
         for i in range(13):
             for symbol in self.symbols:
                 self.cards.append(Card(i, symbol))
-        self.shuffle()
+        shuffle(self.cards)
 
-    def shuffle(self):
-        self.cards = shuffle(self.cards)
 
-    #def getCards(self):
+    def getCards(self, amount: int):
+        return [self.cards.pop(i) for i in range(amount)]
+
+    def emptyDeck(self):
+        cards = [*self.cards]
+        self.cards = []
+        return cards
